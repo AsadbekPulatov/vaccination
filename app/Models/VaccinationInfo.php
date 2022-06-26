@@ -11,4 +11,8 @@ class VaccinationInfo extends Model
     protected $fillable = [
         'age', 'name'
     ];
+
+    public function Emlash(){
+        return $this->hasMany(Vaccination::class);
+    }
 }
