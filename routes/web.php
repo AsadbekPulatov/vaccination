@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BemorsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +25,9 @@ Route::resource('bemor',BemorsController::class,);
 Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('users', App\Http\Controllers\UserController::class);
+    Route::resource('vaccination_infos', App\Http\Controllers\VaccinationInfoController::class)->middleware('admin');
+    Route::resource('vaccinations', App\Http\Controllers\VaccinationController::class);
+    Route::resource('xodim', \App\Http\Controllers\XodimController::class)->middleware('admin');
 });
+
+
