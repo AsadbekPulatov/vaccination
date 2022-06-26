@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use http\Client\Curl\User;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class XodimController extends Controller
 {
@@ -15,7 +16,7 @@ class XodimController extends Controller
     public function index()
     {
         $users = User::all();
-        return view ('Employes.index')->with('users', $users);
+        return view ('admin.Employes.index')->with('users', $users);
     }
 
     /**
@@ -25,7 +26,7 @@ class XodimController extends Controller
      */
     public function create()
     {
-        return view('Employes.create');
+        return view('admin.Employes.create');
     }
 
     /**
@@ -36,9 +37,17 @@ class XodimController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        User::create($input);
-        return redirect('user')->with('flash_message', 'User Addedd!');
+        $user = new User();
+        $user['name'] = $request['name'];
+        $user['surname'] = $request['surname'];
+        $user['passport'] = $request['passport'];
+        $user['position'] = $request['position'];
+        $user['phone number'] = $request['phonenumber'];
+        $user['address'] = $request['address'];
+        $user['email'] = $request['name'].'@gmail.com';
+        $user['password'] = Hash::make($request['name']);
+        $user->save();
+        return redirect()->route('admin.xodim.index')->with('flash_message', 'User Addedd!');
     }
 
     /**
@@ -49,8 +58,9 @@ class XodimController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('Employes.show')->with('users', $user);
+        abort(404);
+//        $user = User::find($id);
+//        return view('admin.Employes.show')->with('users', $user);
     }
 
     /**
@@ -62,7 +72,7 @@ class XodimController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('Employes.edit')->with('users', $user);
+        return view('admin.Employes.edit')->with('users', $user);
     }
 
     /**
@@ -74,10 +84,18 @@ class XodimController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request);
         $user = User::find($id);
-        $input = $request->all();
-        $user->update($input);
-        return redirect('user')->with('flash_message', 'User Updated!');
+        $user['name'] = $request['name'];
+        $user['surname'] = $request['surname'];
+        $user['passport'] = $request['passport'];
+        $user['position'] = $request['position'];
+        $user['phone number'] = $request['phonenumber'];
+        $user['address'] = $request['address'];
+        $user['email'] = $request['name'].'@gmail.com';
+        $user['password'] = Hash::make($request['name']);
+        $user->save();
+        return redirect()->route('admin.xodim.index')->with('flash_message', 'User Updated!');
     }
 
     /**
@@ -89,6 +107,7 @@ class XodimController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect('user')->with('flash_message', 'User deleted!');
+        return redirect()->route('admin.xodim.index')->with('flash_message', 'User Deleted!');
     }
 }
+

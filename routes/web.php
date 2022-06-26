@@ -24,6 +24,7 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('users', App\Http\Controllers\UserController::class);
     Route::resource('vaccination_infos', App\Http\Controllers\VaccinationInfoController::class);
+    Route::resource('xodim', \App\Http\Controllers\XodimController::class)->middleware('admin');
 });
 
-Route::resource('/xodim', \App\Http\Controllers\XodimController::class);
+

@@ -1,4 +1,4 @@
-@extends('Employes.layout')
+@extends('admin.master')
 @section('content')
 
 
@@ -20,3 +20,4 @@
 
         </div>
     </div>
+@endsection

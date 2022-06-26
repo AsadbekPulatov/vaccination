@@ -8,12 +8,20 @@
                         <p>Foydalanuvchi</p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('admin.posts.index') ? 'active' : '' }} ">
+                <li class="nav-item {{ request()->routeIs('admin.vaccination_infos.index') ? 'active' : '' }} ">
                     <a href="{{ route('admin.vaccination_infos.index') }}">
                         <i class="fas fa-pen-square"></i>
                         <p>Emlash turlari</p>
                     </a>
                 </li>
+                @if(\Illuminate\Support\Facades\Auth::user()->position == 'admin')
+                    <li class="nav-item {{ request()->routeIs('admin.xodim.index') ? 'active' : '' }} ">
+                        <a href="{{ route('admin.xodim.index') }}">
+                            <i class="fas fa-pen-square"></i>
+                            <p>Xodimlar</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

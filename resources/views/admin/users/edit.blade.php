@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Изменить контакты</h1></div>
+                    <div class="col-10"><h1 class="card-title">Hisobni tahrirlash</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -25,27 +25,23 @@
                         @csrf
                         @method('PUT')
                     <div class="form-group">
-                        <label for="name">Имя</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Имя" value="{{$user->name}}">
+                        <label for="name">Ism</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Ism" value="{{$user->name}}">
                     </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" name="email" class="form-control" id="email" placeholder="Email" value="{{$user->email}}">
                         </div>
                     <div class="form-group">
-                        <label for="pwd">Пароль</label>
-                        <input type="password" name="password" class="form-control" id="pwd">
+                        <label for="pwd">Parol</label>
+                        <input type="password" name="password" class="form-control" id="pwd" required>
                     </div>
                     <div class="form-group">
-                        <label for="pwd_confirm">Повторите пароль</label>
-                        <input type="password" name="password_confirmation" class="form-control" id="pwd_confirm">
+                        <label for="pwd_confirm">Parolni takrorlang</label>
+                        <input type="password" name="password_confirmation" class="form-control" id="pwd_confirm" required>
                     </div>
-{{--                    <div class="form-group">--}}
-{{--                        <label for="img">Выбор изображения</label>--}}
-{{--                        <input type="file" name="img" class="form-control" id="img">--}}
-{{--                    </div>--}}
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
-                    <input type="reset" class="btn btn-danger" value="Очистить">
+                    <button type="submit" class="btn btn-primary">Saqlash</button>
+                    <input type="reset" class="btn btn-danger" value="Tozalash">
                     </form>
                 </div>
             </div>
