@@ -21,7 +21,7 @@
                     @endif
 
 
-                    <form action="{{route('admin.users.update',$user)}}" method="POST" accept-charset="UTF-8">
+                    <form action="{{route('admin.users.update',$user)}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                     <div class="form-group">
@@ -40,6 +40,10 @@
                         <label for="pwd_confirm">Повторите пароль</label>
                         <input type="password" name="password_confirmation" class="form-control" id="pwd_confirm">
                     </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="img">Выбор изображения</label>--}}
+{{--                        <input type="file" name="img" class="form-control" id="img">--}}
+{{--                    </div>--}}
                     <button type="submit" class="btn btn-primary">Сохранить</button>
                     <input type="reset" class="btn btn-danger" value="Очистить">
                     </form>
