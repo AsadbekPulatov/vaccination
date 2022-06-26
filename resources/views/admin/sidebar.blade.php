@@ -3,15 +3,15 @@
         <div class="sidebar-content">
             <ul class="nav nav-primary">
                 <li class="nav-item {{  request()->routeIs('admin.users.index') ? 'active' : '' }}">
-                    <a href="#">
+                    <a href="{{ route('admin.users.index') }}">
                         <i class="fas fa-user"></i>
-                        <p>Пользователь</p>
+                        <p>Foydalanuvchi</p>
                     </a>
                 </li>
                 <li class="nav-item {{ request()->routeIs('admin.posts.index') ? 'active' : '' }} ">
-                    <a href="#">
+                    <a href="{{ route('admin.vaccination_infos.index') }}">
                         <i class="fas fa-pen-square"></i>
-                        <p>Новости</p>
+                        <p>Emlash turlari</p>
                     </a>
                 </li>
             </ul>
