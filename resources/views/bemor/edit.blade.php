@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"><h1 class="card-title">Patient</h1></div>
+                    <div class="col-10"><h1 class="card-title">Обновлять новости</h1></div>
                 </div>
                 <hr>
                 <div class="card-body">
@@ -21,9 +21,9 @@
                     @endif
 
 
-                    <form action="{{route('bemor.store')}}" method="POST" accept-charset="UTF-8"
-                          enctype="multipart/form-data">
+                    <form action="{{route('bemor.update',['bemor'=>$bemors->id])}}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label for="header_ru">Familya</label>
                             <input type="text" name="familya" class="form-control" id="header_ru" placeholder="Familya">
@@ -72,7 +72,7 @@
                             <input type="text" name="kim_olib_keldi" class="form-control" id="header_ru" placeholder="Kim olib keldi">
                         </div>
 
-                            <button type="submit" id="alert" class="btn btn-primary">Yuborish</button>
+                        <button type="submit" id="alert" class="btn btn-primary" href="{{route('bemor.create')}}">Yuborish</button>
                         <input type="reset" class="btn btn-danger" value="Tozalash">
                     </form>
                 </div>
@@ -80,13 +80,4 @@
         </div>
     </div>
 
-
-
 @endsection
-
-
-
-
-
-
-

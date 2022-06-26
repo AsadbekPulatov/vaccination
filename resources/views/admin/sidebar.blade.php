@@ -14,6 +14,12 @@
                         <p>Новости</p>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->routeIs('admin.posts.index') ? 'active' : '' }} ">
+                    <a href="{{url('bemor')}}">
+                        <i class="fas fa-plus"></i>
+                        <p>Bemorlar</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
