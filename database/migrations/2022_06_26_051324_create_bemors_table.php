@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bemor', function (Blueprint $table) {
+        Schema::create('bemors', function (Blueprint $table) {
             $table->id();
-            $table->string('familya',40);
-            $table->string('ismi',40);
-            $table->string('otasining_ismi',40);
+            $table->string('familya');
+            $table->string('ismi');
+            $table->string('otasining_ismi');
+            $table->string('onasini_ismi');
             $table->date('tugilgan_sana');
             $table->string('millati');
             $table->string('tugilgan_joyi');
             $table->string('guvohnoma_raqami');
             $table->string('yosh');
             $table->string('manzili');
-            $table->string('onasini_ismi');
             $table->string('tel_number');
             $table->string('kim_olib_keldi');
             $table->timestamps();

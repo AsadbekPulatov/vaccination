@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bemor;
 use App\Models\User;
 use App\Models\Vaccination;
 use App\Models\VaccinationInfo;
@@ -35,11 +36,13 @@ class VaccinationController extends Controller
      */
     public function create()
     {
+        $bemorlar = Bemor::all();
         $xodimlar = User::where('id', '!=', 1)->get();
         $infos = VaccinationInfo::all();
         return view('admin.vaccinations.create', [
             'xodimlar' => $xodimlar,
             'infos' => $infos,
+            'bemorlar' => $bemorlar,
         ]);
     }
 

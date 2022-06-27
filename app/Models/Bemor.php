@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vaccination;
 
 class Bemor extends Model
 {
@@ -22,4 +23,8 @@ class Bemor extends Model
         'tel_number',
         'kim_olib_keldi'
         ];
+
+    public function Emlash(){
+        return $this->hasMany(Vaccination::class);
+    }
 }

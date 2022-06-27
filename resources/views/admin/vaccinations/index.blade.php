@@ -36,7 +36,11 @@
                         @foreach($vaccinations as $key => $data)
                             <tr>
                                 <td class="col-1">{{$key+1}}</td>
-                                <td>{{$data->sick_id}}</td>
+                                <td>
+                                    @if(isset($data->bemor->ismi))
+                                        {{$data->bemor->ismi}}
+                                    @endif
+                                </td>
                                 <td>
                                     @if(isset($data->xodim->name))
                                         {{$data->xodim->name}}
@@ -50,7 +54,13 @@
                                 <td>{{$data->created_at}}</td>
                                 <td>{{$data->blood}}</td>
                                 <td>{{$data->temperature}}</td>
-                                <td>{{$data->status}}</td>
+                                <td>
+                                    @if($data['status'] == 1)
+                                        <p class="btn btn-success">Ijobiy</p>
+                                    @else
+                                        <p class="btn btn-danger">Salbiy</p>
+                                    @endif
+                                </td>
                                 <td>{{$data->redate}}</td>
                                 <td class="col-2">
                                     <form action="{{ route('admin.vaccinations.destroy',$data->id) }}" method="POST">

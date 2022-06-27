@@ -14,10 +14,9 @@ class BemorsController extends Controller
      */
     public function index(){
         $bemors = Bemor::orderby('id','DESC')->get();
-        return view('bemor.home',[
+        return view('admin.bemor.index',[
             'bemors' => $bemors,
         ]);
-
     }
 
     /**
@@ -27,7 +26,7 @@ class BemorsController extends Controller
      */
     public function create()
     {
-        return view('bemor.create');
+        return view('admin.bemor.create');
     }
 
     /**
@@ -38,7 +37,6 @@ class BemorsController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request);
       $bemors = new Bemor();
         $bemors->create([
             'familya' => $request['familya'],
@@ -55,8 +53,7 @@ class BemorsController extends Controller
             'kim_olib_keldi' => $request['kim_olib_keldi'],
         ]);
 
-//        dd($request);
-        return redirect()->route('home');
+        return redirect()->route('admin.bemor.index');
     }
 
     /**
@@ -65,9 +62,9 @@ class BemorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Bemor $bemor)
     {
-        //
+        return view('admin.bemor.show', compact('bemor'));
     }
 
     /**
@@ -79,7 +76,7 @@ class BemorsController extends Controller
     public function edit($id)
     {
         $bemors = Bemor::find($id);
-        return view('bemor.edit',[
+        return view('admin.bemor.edit',[
             'bemors' => $bemors,
         ]);
     }
@@ -109,8 +106,7 @@ class BemorsController extends Controller
             'kim_olib_keldi' => $request['kim_olib_keldi'],
         ]);
 
-//        dd($request);
-        return redirect()->route('home');
+        return redirect()->route('admin.bemor.index');
     }
 
     /**
@@ -127,6 +123,6 @@ class BemorsController extends Controller
 public function destroy(Bemor $bemor)
 {
     $bemor->delete();
-    return redirect()->route('bemor.index');
+    return redirect()->route('admin.bemor.index');
 }
 }

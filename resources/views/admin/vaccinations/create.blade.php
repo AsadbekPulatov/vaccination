@@ -25,13 +25,19 @@
                         @csrf
                         <div class="form-group">
                             <label for="sick_id">Bemor</label>
-                            <input type="text" name="sick_id" class="form-control" id="sick_id" required>
+                            {{--                            <input type="text" name="sick_id" class="form-control" id="sick_id" required>--}}
+                            <select name="sick_id" id="sick_id" class="form-select form-control" required>
+                                <option value="">Bemorni tanlang</option>
+                                @foreach($bemorlar as $data)
+                                    <option value="{{ $data->id }}">{{ $data->ismi }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         @if(\Illuminate\Support\Facades\Auth::id() == 1)
                             <div class="form-group">
                                 <label for="employee_id">Xodim</label>
-                                <select name="employee_id" id="employee_id" class="form-select form-control">
+                                <select name="employee_id" id="employee_id" class="form-select form-control" required>
                                     <option value="">Xodimni tanlang</option>
                                     @foreach($xodimlar as $data)
                                         <option value="{{ $data->id }}">{{ $data->name }}</option>

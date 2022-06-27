@@ -14,4 +14,7 @@ class Vaccination extends Model
     public function info(){
         return $this->belongsTo(VaccinationInfo::class, 'info_id');
     }
+    public function bemor(){
+        return $this->belongsTo(Bemor::class, 'sick_id');
+    }
 }
