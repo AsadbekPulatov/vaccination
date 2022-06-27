@@ -27,7 +27,6 @@ Route::prefix('admin')->name('admin.')->middleware(['web', 'auth'])->group(funct
     Route::resource('vaccinations', App\Http\Controllers\VaccinationController::class);
     Route::resource('xodim', \App\Http\Controllers\XodimController::class)->middleware('admin');
     Route::resource('bemor', \App\Http\Controllers\BemorsController::class);
-
+    Route::get('/download', [\App\Http\Controllers\DownloadController::class, 'download'])->name('download');
 });
-
 

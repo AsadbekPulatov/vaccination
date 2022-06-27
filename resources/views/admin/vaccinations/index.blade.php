@@ -6,14 +6,21 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-9"><h1 class="card-title">Emlanganlar ro'yxati</h1></div>
-                    <div class="col-md-1">
+                    <div class="col-md-3">
                         <a class="btn btn-primary" href="{{route('admin.vaccinations.create')}}">
                             <span class="btn-label">
                                 <i class="fa fa-plus"></i>
                             </span>
                             Qo'shish
                         </a>
+                        <a class="btn btn-primary" href="{{route('admin.download')}}">
+                            <span class="btn-label">
+                                <i class="fa fa-eye"></i>
+                            </span>
+                            Ko'rish
+                        </a>
                     </div>
+
                 </div>
                 <hr>
                 <div class="card-body">
@@ -85,5 +92,4 @@
             </div>
         </div>
     </div>
-
 @endsection
