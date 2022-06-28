@@ -16,7 +16,7 @@
                 </div>
                 <hr>
                 <div class="card-body">
-                    <table class="table table-bordered table-hover">
+                    <table class="table-bordered table-hover text-center">
                         <thead>
                         <tr>
                             <th scope="col" class="col-1">#</th>
