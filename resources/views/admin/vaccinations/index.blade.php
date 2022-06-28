@@ -13,7 +13,7 @@
                             </span>
                             Qo'shish
                         </a>
-                        <a class="btn btn-primary" href="{{route('admin.download')}}">
+                        <a class="btn btn-primary" href="{{route('admin.download', ['id' => $id])}}">
                             <span class="btn-label">
                                 <i class="fa fa-eye"></i>
                             </span>
@@ -45,7 +45,9 @@
                                 <td class="col-1">{{$key+1}}</td>
                                 <td>
                                     @if(isset($data->bemor->ismi))
-                                        {{$data->bemor->ismi}}
+                                        <a href="{{ route('admin.vaccinations.index',['id' => $data['bemor']['id']]) }}" class="page-link">
+                                            {{$data->bemor->familya}}  {{ $data->bemor->ismi }}
+                                        </a>
                                     @endif
                                 </td>
                                 <td>

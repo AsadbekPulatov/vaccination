@@ -17,15 +17,23 @@ class VaccinationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $id = $request['id'];
+//        dd($id);
         if (Auth::id() == 1)
-            $vaccinations = Vaccination::orderby('id', 'DESC')->get();
+            if ($id != NULL)
+                $vaccinations = Vaccination::where('sick_id', $id)->orderby('id', 'DESC')->get();
+            else $vaccinations = Vaccination::orderby('id', 'DESC')->get();
         else
-            $vaccinations = Vaccination::where('employee_id', Auth::id())->orderby('id', 'DESC')->get();
-//        $vaccinations = Vaccination::orderby('id', 'DESC')->get();
+            if ($id != NULL)
+            $vaccinations = Vaccination::where('sick_id', $id)
+                ->where('employee_id', Auth::id())->orderby('id', 'DESC')->get();
+            else
+                $vaccinations = Vaccination::where('employee_id', Auth::id())->orderby('id', 'DESC')->get();
         return view('admin.vaccinations.index', [
-            'vaccinations' => $vaccinations
+            'vaccinations' => $vaccinations,
+            'id' => $id,
         ]);
     }
 

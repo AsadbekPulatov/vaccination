@@ -9,9 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class DownloadController extends Controller
 {
-    public function download()
+    public function download(Request $request)
     {
-        $vaccinations = Vaccination::orderby('id', 'DESC')->get();
+        $id = $request['id'];
+        if ($id != NULL)
+            $vaccinations = Vaccination::where('sick_id', $id)->orderby('id', 'DESC')->get();
+        else
+            $vaccinations = Vaccination::orderby('id', 'DESC')->get();
         return view('admin.vaccinations.download', [
             'vaccinations' => $vaccinations
         ]);

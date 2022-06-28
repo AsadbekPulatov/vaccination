@@ -29,7 +29,7 @@
                             <select name="sick_id" id="sick_id" class="form-select form-control" required>
                                 <option value="">Bemorni tanlang</option>
                                 @foreach($bemorlar as $data)
-                                    <option value="{{ $data->id }}">{{ $data->ismi }}</option>
+                                    <option value="{{ $data->id }}">{{ $data->familya }} {{ $data->ismi }}(Otasi: {{ $data->otasining_ismi }})</option>
                                 @endforeach
                             </select>
                         </div>

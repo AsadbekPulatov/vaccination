@@ -68,7 +68,7 @@
                                 <td class="col-1">{{$key+1}}</td>
                                 <td>
                                     @if(isset($data->bemor->ismi))
-                                        {{$data->bemor->ismi}}
+                                        {{$data->bemor->familya}}  {{ $data->bemor->ismi }}
                                     @endif
                                 </td>
                                 <td>
